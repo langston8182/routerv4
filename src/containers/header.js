@@ -6,19 +6,17 @@ import {Link} from "react-router-dom";
 class Header extends Component {
     render() {
         return (
-            <div>
-                <ul className="nav nav-tabs bg-primary">
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/accueil">Accueil</Link>
-                    </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to="/ressources">Ressources</Link>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="#" onClick={this.onClickAuthentication}>{this.renderAuthenticationLabel()}</a>
-                    </li>
-                </ul>
-            </div>
+            <ul className="nav nav-tabs bg-primary">
+                <li className="nav-item">
+                    <Link className="nav-link" to="/accueil">Accueil</Link>
+                </li>
+                <li className="nav-item">
+                    <Link className="nav-link" to="/ressources">Ressources</Link>
+                </li>
+                <li className="nav-item">
+                    <a className="nav-link" href="#" onClick={this.onClickAuthentication}>{this.renderAuthenticationLabel()}</a>
+                </li>
+            </ul>
         );
     }
 
