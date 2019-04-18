@@ -1,4 +1,4 @@
-import {INCREMENT_ACTION_COUNT, SET_AUTHENTICATION} from "./action-types";
+import {ADD_RESSOURCE, INCREMENT_ACTION_COUNT, SET_AUTHENTICATION} from "./action-types";
 
 export function setAuthentication(isLoggedIn) {
     return function(dispatch) {
@@ -12,5 +12,11 @@ export function setAuthentication(isLoggedIn) {
 export function incrementActionCount() {
     return {
         type: INCREMENT_ACTION_COUNT
+    };
+}
+
+export function addRessource() {
+    return {
+        type: ADD_RESSOURCE
     };
 }
