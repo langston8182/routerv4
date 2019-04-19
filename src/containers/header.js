@@ -14,7 +14,7 @@ class Header extends Component {
                     <Link className="nav-link" to="/ressources">Ressources</Link>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link" href="#" onClick={this.onClickAuthentication}>{this.renderAuthenticationLabel()}</a>
+                    <Link className="nav-link" to={"/signin"} onClick={this.onClickAuthentication}>{this.renderAuthenticationLabel()}</Link>
                 </li>
             </ul>
         );
