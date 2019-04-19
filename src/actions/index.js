@@ -34,10 +34,14 @@ export function signinUser({email, password}, history) {
             dispatch(setAuthentication(true));
             history.push("/ressources");
         }).catch(error => {
-            console.log('---------------');
-            console.log('', error);
-            console.log('---------------');
 
         });
     }
+}
+
+export function signoutUser() {
+    return function(dispatch) {
+        dispatch(setAuthentication(false));
+        localStorage.removeItem("token");
+    };
 }
