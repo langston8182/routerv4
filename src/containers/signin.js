@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Field, reduxForm} from 'redux-form';
 import {connect} from 'react-redux';
-import {addRessource} from "../actions";
+import {signinUser} from "../actions";
 
 const FIELDS = {
     email: "email",
@@ -9,13 +9,13 @@ const FIELDS = {
 };
 
 class SigninForm extends Component {
-    handleSubmit() {
-
+    handleSubmit(credentials) {
+        this.props.signinUser(credentials, this.props.history);
     }
 
     render() {
         return (
-            <form onSubmit={this.props.handleSubmit(this.handleSubmit)}>
+            <form onSubmit={this.props.handleSubmit(this.handleSubmit.bind(this))}>
                 <div className="row justify-content-md-center">
                     <h1>Connexion</h1>
                 </div>
@@ -61,7 +61,7 @@ const signinForm = reduxForm({
 })(SigninForm);
 
 const mapDispatchToProps = {
-
+    signinUser
 };
 
 export default connect(null, mapDispatchToProps)(signinForm);

@@ -14,15 +14,14 @@ class Header extends Component {
                     <Link className="nav-link" to="/ressources">Ressources</Link>
                 </li>
                 <li className="nav-item">
-                    <Link className="nav-link" to={"/signin"} onClick={this.onClickAuthentication}>{this.renderAuthenticationLabel()}</Link>
+                    <Link className="nav-link"
+                          to={"/signin"}>
+                        {this.renderAuthenticationLabel()}
+                    </Link>
                 </li>
             </ul>
         );
     }
-
-    onClickAuthentication = () => {
-        this.props.setAuthentication(!this.props.isLoggedIn);
-    };
 
     renderAuthenticationLabel = () => {
         if (this.props.isLoggedIn) {

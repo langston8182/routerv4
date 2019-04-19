@@ -1,4 +1,7 @@
 import {ADD_RESSOURCE, INCREMENT_ACTION_COUNT, SET_AUTHENTICATION} from "./action-types";
+import axios from 'axios';
+
+const BASE_URL = "http://localhost:3090";
 
 export function setAuthentication(isLoggedIn) {
     return function(dispatch) {
@@ -19,4 +22,22 @@ export function addRessource() {
     return {
         type: ADD_RESSOURCE
     };
+}
+
+export function signinUser({email, password}, history) {
+    return function(dispatch) {
+        axios.post(`${BASE_URL}/signin`, {
+           email,
+           password
+        }).then(response => {
+            localStorage.setItem("token", response.data.token);
+            dispatch(setAuthentication(true));
+            history.push("/ressources");
+        }).catch(error => {
+            console.log('---------------');
+            console.log('', error);
+            console.log('---------------');
+
+        });
+    }
 }

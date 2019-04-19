@@ -5,6 +5,7 @@ const expressServer = express();
 const router = require('./route');
 const http = require("http");
 const mongoose = require('mongoose');
+const cors = require("cors");
 
 mongoose.connect("mongodb+srv://langston:langston@cluster0-dq9yl.mongodb.net/test?retryWrites=true", { useNewUrlParser: true });
 mongoose.connection
@@ -14,6 +15,7 @@ mongoose.connection
 expressServer.use(morgan('combined'));
 expressServer.use(bodyParser.json({type: '*/*'}));
 
+expressServer.use(cors());
 
 const port = 3090;
 const server = http.createServer(expressServer);
