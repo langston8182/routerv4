@@ -7,6 +7,8 @@ import requireAuth from '../helpers/require-authentication';
 import TodoApp from './todo-app';
 import SigninForm from '../containers/signin';
 import Signout from '../containers/signout';
+import SignUpForm from '../containers/signup';
+import Error from '../components/errors';
 require("../style.css");
 
 class App extends Component {
@@ -15,11 +17,13 @@ class App extends Component {
             <div className="container body_content">
                 <Header />
                 <div className="container body_content">
+                    <Error />
                     <Switch>
                         <Route exact path="/" component={TodoApp} />
                         <Route exact path="/accueil" component={Home} />
                         <Route path="/ressources" component={requireAuth(Ressources)} />
                         <Route exact path="/signin" component={SigninForm}/>
+                        <Route exact path="/signup" component={SignUpForm}/>
                         <Route exact path="/signout" component={Signout} />
                     </Switch>
                 </div>

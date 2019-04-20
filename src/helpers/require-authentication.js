@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 
 export default function(ChildComponent) {
     class RequireAuthentication extends Component {
+        // Render ChildComponent car push est asynchrone.
         componentWillMount() {
             if (!this.props.isLoggedIn) {
                 this.props.history.push("/");
@@ -16,7 +17,7 @@ export default function(ChildComponent) {
         }
 
         render() {
-            return <ChildComponent/>;
+            return  this.props.isLoggedIn && <ChildComponent/>;
         }
     }
 

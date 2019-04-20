@@ -20,7 +20,7 @@ class Header extends Component {
                     <li key={1} className="nav-item">
                         <Link className="nav-link" to={"/signin"}>Connexion</Link>
                     </li>,
-                    <li key={1} className="nav-item">
+                    <li key={2} className="nav-item">
                         <Link className="nav-link" to={"/signup"}>Inscription</Link>
                     </li>
                 ]
