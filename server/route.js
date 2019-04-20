@@ -8,8 +8,8 @@ const requireSignin = passport.authenticate("local", {session: false});
 module.exports = function(expressServer) {
     expressServer.post("/signup", AuthenticationController.signup);
 
-    expressServer.get("/ressourceSecrete", requireToken, function(req, res) {
-       res.send({codeSecre: 42});
+    expressServer.get("/specialRessource", requireToken, function(req, res) {
+       res.send({result: "Ceci est du contenu securise"});
     });
 
     expressServer.post("/signin", requireSignin, AuthenticationController.signin);
